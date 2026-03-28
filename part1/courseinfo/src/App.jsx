@@ -1,3 +1,10 @@
+const Part = ({ name, exercises }) => {
+  //console.log(name)
+  return (
+    <p>{name} {exercises}</p>
+  )
+}
+
 const Total = ({ parts } ) => {
   //console.log(parts)
   return (
@@ -16,14 +23,16 @@ const Header = course => {
   )
 }
 
-const Content = (parts) => {
-  //console.log(parts)
+const Content = ({ parts }) => {
   return (
     <div>
-      <p>{parts.name} {parts.exercises} </p>
+      <Part name={parts[0].name} exercises={parts[0].exercises} />
+      <Part name={parts[1].name} exercises={parts[1].exercises} />
+      <Part name={parts[2].name} exercises={parts[2].exercises} />
     </div>
   )
 }
+
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -36,13 +45,11 @@ const App = () => {
   return(
     <div>
       <Header name={course} />
-      <Content name={parts[0].name} exercises={parts[0].exercises} />
-      <Content name={parts[1].name} exercises={parts[1].exercises} />
-      <Content name={parts[2].name} exercises={parts[1].exercises} />
+      <Content parts={parts} />
       <Total parts={parts} />
     </div>
 
-  )    
+  )     
 
 }
 
