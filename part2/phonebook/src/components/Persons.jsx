@@ -1,11 +1,11 @@
 import Person from './Person'
 
-const Persons = (persons) => {
-  //console.log(persons.filteredPersons)
+const Persons = ({ filteredPersons, onDelete }) => {
+  //console.log(filteredPersons)
   return (
     <ul>
-      {persons.filteredPersons.map(person => (
-        <Person key={person.id} person={person} />
+      {filteredPersons.map(person => (
+        <Person key={person.id} person={person} onDelete={onDelete} />
       ))}
     </ul>
   )

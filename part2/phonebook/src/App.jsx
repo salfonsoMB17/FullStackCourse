@@ -57,11 +57,24 @@ const App = () => {
         setNewName('')
         setNewNumber('')
     })
-}
+  }
 
   const filteredPersons = persons.filter(person =>
     person.name.toLowerCase().includes(filterValue.toLowerCase())
   )
+
+  const onDeletePerson = (id) => {
+    //console.log("delete clicked with id: ", id)
+    const person = persons.find(p => p.id === id)
+    
+    if (window.confirm(`Delete ${person.name}?`)) {  // ← AQUÍ
+      personService
+        .remove(id)
+        .then(() => {
+          setPersons(persons.filter(person => person.id !== id))
+        })
+    }
+  }
 
   return (
     <div>
@@ -75,7 +88,7 @@ const App = () => {
         newName={newName} 
         newNumber={newNumber} />
       <h3>Numbers</h3>
-      <Persons filteredPersons={filteredPersons}/>
+      <Persons filteredPersons={filteredPersons} onDelete={onDeletePerson} />
     </div>
   )
 }
