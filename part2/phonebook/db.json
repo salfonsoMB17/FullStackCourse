@@ -34,6 +34,16 @@
       "name": "Michael Olise",
       "number": "345-678-901",
       "id": "OQ777vcOiC0"
+    },
+    {
+      "name": "Harry potter ",
+      "number": "123-456789",
+      "id": "zbqcOPnAE18"
+    },
+    {
+      "name": "Leah Lawrence",
+      "number": "4509-2313-2222",
+      "id": "o1cLllnp3I4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
