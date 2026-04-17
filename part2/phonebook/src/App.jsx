@@ -11,7 +11,7 @@ const App = () => {
   const [filterValue, setFilterValue] = useState('')
 
   useEffect(() => {
-    console.log('effect')
+    //console.log('effect')
     axios
       .get('http://localhost:3001/persons')
       .then(response => {
@@ -45,15 +45,19 @@ const App = () => {
     }
 
     const personObject = {
-      number: newNumber,
       name: newName,
-      id: persons.length + 1,
+      number: newNumber
     }
 
-    setPersons(persons.concat(personObject))
-    setNewName('')
-    setNewNumber('')
-  }
+    // POST al servidor
+    axios
+      .post('http://localhost:3001/persons', personObject)
+      .then(response => {
+        setPersons(persons.concat(response.data))  // response.data incluye el id generado
+        setNewName('')
+        setNewNumber('')
+    })
+}
 
   const filteredPersons = persons.filter(person =>
     person.name.toLowerCase().includes(filterValue.toLowerCase())
