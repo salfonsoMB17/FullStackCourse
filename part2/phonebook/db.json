@@ -19,6 +19,16 @@
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": "4"
+    },
+    {
+      "name": "Sergio Alfonso G",
+      "number": "434-444-12323",
+      "id": "l5MSm4JEwAA"
+    },
+    {
+      "name": "Leah Lawrence",
+      "number": "34-45-65343",
+      "id": "9tPXxNRut9A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
