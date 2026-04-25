@@ -12,6 +12,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filterValue, setFilterValue] = useState('')
   const [successMessage, setSuccessMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     //console.log('effect')
@@ -20,6 +21,14 @@ const App = () => {
       .then(response => {
         //console.log('promise fulfilled')
         setPersons(response)
+      })
+      .catch(error => {
+        setErrorMessage(
+          `Error: ${error.response.data.error}`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
       })
   }, [])
   //console.log('render', persons.length, 'persons')
@@ -59,6 +68,14 @@ const App = () => {
               setSuccessMessage(null)
             }, 5000)
           })
+          .catch(error => {
+            setErrorMessage(
+              `Error: ${error.response.data.error}`
+            )
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000)
+          })
       }
     } else {
       const personObject = {
@@ -81,6 +98,14 @@ const App = () => {
             setSuccessMessage(null)
           }, 5000)
       })
+      .catch(error => {
+        setErrorMessage(
+          `Error: ${error.response.data.error}`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+      })
     }    
   }
 
@@ -98,6 +123,15 @@ const App = () => {
         .then(() => {
           setPersons(persons.filter(person => person.id !== id))
         })
+        .catch(error => {
+          setErrorMessage(
+            `Error: Information of ${person.name} has already been removed from server`
+          )
+          setPersons(persons.filter(person => person.id !== id))  // ← Agregar esta línea
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
+        })
     }
   }
 
@@ -105,6 +139,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Notification className="success" message={successMessage} />
+      <Notification className="error" message={errorMessage} />
       <Filter handleFilterChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm 
