@@ -1,6 +1,11 @@
-const CountryBasic = ({ country }) => (
+const CountryBasic = ({ country, onShow }) => (
   <div>
-    <p>{country.name.common}</p>
+    <p>{country.name.common}
+      <button 
+          onClick={() => onShow(country)}
+          style={{ marginLeft: '10px' }}
+        >Show</button>
+    </p>
   </div>
 )
 

@@ -1,7 +1,12 @@
 import Country from './Country'
 import CountryBasic from './CountryBasic'
 
-const Countries = ({ filteredCountries }) => {
+const Countries = ({ filteredCountries, onShow, selectedCountry }) => {
+    if (selectedCountry) {
+        console.log(selectedCountry)
+        return <Country country={selectedCountry} />
+    }
+
     if (filteredCountries.length > 10) {
         return (
             <div>
@@ -20,7 +25,7 @@ const Countries = ({ filteredCountries }) => {
         return (
             <div>
                 {filteredCountries.map(country => 
-                    <CountryBasic key={country.cca3} country={country} />
+                    <CountryBasic key={country.cca3} country={country} onShow={onShow} />
                 )}
             </div>
         )
