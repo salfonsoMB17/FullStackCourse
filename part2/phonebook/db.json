@@ -29,6 +29,16 @@
       "name": "Leah Lawrence",
       "number": "34-45-65343",
       "id": "9tPXxNRut9A"
+    },
+    {
+      "name": "Mariela insuasti",
+      "number": "1323-1313-11",
+      "id": "Z4rkjQT_Kv8"
+    },
+    {
+      "name": "pep guardiola",
+      "number": "31-133-11",
+      "id": "iAH1EjNFz6E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
