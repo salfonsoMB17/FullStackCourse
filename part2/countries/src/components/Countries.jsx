@@ -3,7 +3,7 @@ import CountryBasic from './CountryBasic'
 
 const Countries = ({ filteredCountries, onShow, selectedCountry }) => {
     if (selectedCountry) {
-        console.log(selectedCountry)
+        //console.log(selectedCountry)
         return <Country country={selectedCountry} />
     }
 
